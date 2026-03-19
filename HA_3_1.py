@@ -21,4 +21,4 @@ def get_days_from_today(date):
 
 
 # Пример использования
-print(get_days_from_today("2020-10-009"))  # Пример вызова функции
+print(get_days_from_today("2020-10-09"))  # Пример вызова функции
