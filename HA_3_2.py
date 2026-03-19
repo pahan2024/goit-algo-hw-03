@@ -2,12 +2,10 @@ import random
 
 def get_numbers_ticket(min, max, quantity):
 
-    if min < 1 or max > 1000 or min >= max:
-        raise ValueError("Диапазон чисел должен быть от 1 до 1000, где min < max.")
-    if quantity < 1 or quantity > (max - min + 1):
-        raise ValueError("Количество чисел должно быть от 1 до количества доступных чисел в диапазоне.")
-    
-    # Генерация уникальных чисел
+    if not (1 <= min < max <= 1000) or not (1<= quantity <= (max - min + 1)): #перевірка диапазона або кількисть чісел неможлива
+        return [] #в разі помилки надає пустий список 
+   
+        # Генерация уникальных чисел
     numbers = random.sample(range(min, max + 1), quantity)
     return sorted(numbers)
 
