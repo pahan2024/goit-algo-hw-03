@@ -15,6 +15,6 @@ def get_numbers_ticket(min, max, quantity):
 
 # Пример использования
 # print(get_numbers_ticket(1, 100, 4))  # Лотерейный пример: 6 чисел от 1 до 49
-lottery_numbers = get_numbers_ticket(1, 49, 6)
+lottery_numbers = get_numbers_ticket(1, 100, 4)
 
 print("Ваші лотерейні числа:", lottery_numbers)
