@@ -3,22 +3,25 @@ from datetime import datetime
 
 def get_days_from_today(date):
 
-    # Рассчитывает количество дней между указанной датой и текущей датой.
-
-    #:param date: строка, представляющая дату в формате 'YYYY-MM-DD'
-    #:return: целое число — разница в днях
+    # Розраховує кількість днів між заданою датою і поточною датою.
 
     try:
-        # Преобразуем строку даты в объект datetime
-        input_date = datetime.strptime(date, "%Y-%m-%d").date()
-        # Получаем текущую дату
+        # .strip() видаляє зайві пробіли на початку та в кінці рядка
+        clean_date = str(date).strip()
+
+        # Перетворюємо очищений рядок у об'єкт дати
+        input_date = datetime.strptime(clean_date, "%Y-%m-%d").date()
         today_date = datetime.today().date()
-        # Рассчитываем разницу в днях
-        delta = (input_date - today_date).days
-        return delta
-    except ValueError:
-        print("Введите дату в правильном формате 'YYYY-MM-DD'.")
+
+        # Розраховуємо різницю (майбутнє — додатне число)
+        delta = input_date - today_date
+
+        return delta.days
+    except (ValueError, TypeError):
+        # Обробка некоректного формату або типу даних
+        print("Помилка: введіть дату у форматі 'РРРР-ММ-ДД'.")
+        return None
 
 
-# Пример использования
-print(get_days_from_today("2020-10-09"))  # Пример вызова функции
+# Перевірка (якщо сьогодні 2020-10-09)
+print(get_days_from_today("2020-10-09  "))
